@@ -15,17 +15,6 @@
     "RPI3B",
     "Teensy32"
   ],
-  "code": {
-    "global": "int16_t {{varname}}Ax, {{varname}}Ay, {{varname}}Az;\n",
-    "setup": "{{varname}}.init();\n",
-    "snippetCode": "// read raw accel measurements from device\n{{varname}}.getAcceleration(&{{varname}}Ax, &{{varname}}Ay, &{{varname}}Az);\n// display tab-separated accel x/y/z values\nSerial.print(F(\"{{instname}} accel-\\t\")); \nSerial.print({{varname}}Ax); Serial.print(F(\"\\t\"));\nSerial.print({{varname}}Ay); Serial.print(F(\"\\t\"));  \nSerial.println({{varname}}Az);\n",
-    "constructors": "{{classname}} {{varname}};"
-  },
-  "license": "circuito",
-  "instantiate": {
-    "classname": "ADXL345",
-    "varname": "adxl"
-  },
   "files": [
     "I2Cdev.cpp",
     "ADXL345.h",
@@ -33,8 +22,19 @@
     "ADXL345.cpp",
     "I2Cdev.h"
   ],
+  "license": "circuito",
+  "instantiate": {
+    "classname": "ADXL345",
+    "varname": "adxl"
+  },
   "includeHeaders": [
     "ADXL345.h",
     "I2Cdev.h"
-  ]
+  ],
+  "code": {
+    "global": "int16_t {{varname}}Ax, {{varname}}Ay, {{varname}}Az;\n",
+    "constructors": "{{classname}} {{varname}};",
+    "setup": "{{varname}}.init();\n",
+    "snippetCode": "// read raw accel measurements from device\n{{varname}}.getAcceleration(&{{varname}}Ax, &{{varname}}Ay, &{{varname}}Az);\n// display tab-separated accel x/y/z values\nSerial.print(F(\"{{instname}} accel-\\t\")); \nSerial.print({{varname}}Ax); Serial.print(F(\"\\t\"));\nSerial.print({{varname}}Ay); Serial.print(F(\"\\t\"));  \nSerial.println({{varname}}Az);\n"
+  }
 }
